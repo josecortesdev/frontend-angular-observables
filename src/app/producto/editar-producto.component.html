@@ -9,17 +9,17 @@
                     required>
             </div>
             <div class="form-group">
-                <label for="nombre">Isin</label>
+                <label for="nombre">Origen</label>
                 <input type="text" class="form-control" id="isin" name="isin" [(ngModel)]="producto.isin" required>
             </div>
             <div class="form-group">
-                <label for="nombre">Ticker</label>
-                <input type="text" class="form-control" id="ticker" name="ticker" [(ngModel)]="producto.ticker"
-                    required>
+                <label for="ter">Año</label>
+                <input type="number" class="form-control" id="ter" name="ter" [(ngModel)]="producto.ter" required>
             </div>
             <div class="form-group">
-                <label for="ter">Ter</label>
-                <input type="number" class="form-control" id="ter" name="ter" [(ngModel)]="producto.ter" required>
+                <label for="nombre">ID de un vídeo de Youtube (al final de la URL)</label>
+                <input type="text" class="form-control" id="ticker" name="ticker" [(ngModel)]="producto.ticker"
+                    required>
             </div>
             <button class="btn boton btn-block" [disabled]="!f.valid">
                 <i class="fas fa-pencil-alt"></i> Actualizar</button>

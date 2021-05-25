@@ -61,10 +61,10 @@ this.cargarProductos(); // Carga los productos
     
   }
 
-SistemaEuropeo(SistemaAmericano :number){
-  let TerConComa = this.DecimalPipe.transform(SistemaAmericano, "1.2-2", 'es')
-  return TerConComa;
-}
+// SistemaEuropeo(SistemaAmericano :number){ // Lo modifico
+//   let TerConComa = this.DecimalPipe.transform(SistemaAmericano, "1.2-2", 'es')
+//   return TerConComa;
+// }
 
   cargarProductos(): void {
 
