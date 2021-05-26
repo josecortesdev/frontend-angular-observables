@@ -9,11 +9,12 @@ import { environment } from 'src/environments/environment';
 })
 export class ProductoService {
 
-  // Antes incluía la url aquí, ahora lo hago dentro de la carpeta environments
- 
+  // Reutilizo un backend que hice con Spring
+  // De momento dejo el nombre 'producto' para no tardar mucho en la prueba
+  // Para una aplicación en la que vayan a trabajar más personas probablemente debería cambiar el nombre 'producto' por uno como 'banda' para que se entienda mejor
 
   productoURL = 'http://localhost:8080/producto/';
-  // environment.productoURL;
+  
 
   constructor(private httpClient: HttpClient) { }
 

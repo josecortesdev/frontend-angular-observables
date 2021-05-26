@@ -22,25 +22,22 @@ export class DetalleProductoComponent implements OnInit {
     private router: Router
   ) {
 
-   }
+  }
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.params.id;
     this.productoService.detail(id).subscribe(
       data => {
         this.producto = data;
- 
 
-                //  `<iframe width="230" height="157" src="`+ this.producto.ticker + `"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+        let Video = <HTMLElement>document.querySelector('#video');
 
-                  let Video = <HTMLElement>document.querySelector('#video');
-           
-                   Video.innerHTML = `<iframe width="230" height="157" src="https://www.youtube.com/embed/`+ this.producto.ticker + `"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+        Video.innerHTML = `<iframe width="230" height="157" src="https://www.youtube.com/embed/` + this.producto.ticker + `"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
 
 
       },
       err => {
-        this.toastr.error(err.error.mensaje, 'Fail', {
+        this.toastr.error(err.error.mensaje, 'Error', {
           timeOut: 3000, positionClass: 'toast-top-center',
         });
         this.volver();

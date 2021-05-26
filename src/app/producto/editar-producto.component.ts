@@ -47,7 +47,7 @@ export class EditarProductoComponent implements OnInit {
         this.router.navigate(['/lista']);
       },
       err => {
-        this.toastr.error(err.error.mensaje, 'Fail', {
+        this.toastr.error(err.error.mensaje, 'Error', {
           timeOut: 3000, positionClass: 'toast-top-center',
         });
 

@@ -46,7 +46,7 @@ export class RegistroComponent implements OnInit {
       },
       err => { // si hay error
         this.errMsj = err.error.mensaje;
-        this.toastr.error(this.errMsj, 'Fail', {
+        this.toastr.error(this.errMsj, 'Error', {
           timeOut: 3000, positionClass: 'toast-top-center',
         });
 

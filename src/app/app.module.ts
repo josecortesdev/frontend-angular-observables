@@ -60,7 +60,7 @@ registerLocaleData(localeEs, 'es');
     interceptorProvider,
     DecimalPipe, //Para poner decimales con el sistema europeo
 
-    { provide: LOCALE_ID, useValue: 'es' },  // ESPAÑA
+    { provide: LOCALE_ID, useValue: 'es' },  // El de España
 
 
   ],

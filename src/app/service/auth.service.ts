@@ -11,10 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-  // Antes incluía la url aquí, ahora lo hago en environments
-
   authURL = 'http://localhost:8080/auth/';
-  // environment.authURL;
 
   constructor(private httpClient: HttpClient) { }
 

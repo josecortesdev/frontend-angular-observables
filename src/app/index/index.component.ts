@@ -11,11 +11,7 @@ import { parse } from 'querystring';
 })
 export class IndexComponent implements OnInit {
 
-
-
   nombreUsuario: string; // vacío
-
- 
 
   constructor(private tokenService: TokenService, private DecimalPipe: DecimalPipe) {
 
@@ -24,8 +20,6 @@ export class IndexComponent implements OnInit {
   ngOnInit() {
     this.nombreUsuario = this.tokenService.getUserName();
   }
-
-
 
 
 }
