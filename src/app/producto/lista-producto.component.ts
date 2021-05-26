@@ -92,10 +92,10 @@ const admin = 'adminjose'
     for(let i=0; i<productos.length; i++){
 
 
-      this.sinid.push({nombre: productos[i].nombre, ter: productos[i].ter})
+      this.sinid.push({nombre: productos[i].nombre, age: productos[i].age})
 
       // this.sinid[i].nombre = this.productos[i].nombre;
-      // this.sinid[i].ter = this.productos[i].ter;
+      // this.sinid[i].age = this.productos[i].age;
       // this.sinid[i].idcartera = this.productos[i].idcartera;
         
  
@@ -164,7 +164,7 @@ cargarusuario(){ //
   }
 
  
-// comprueba(id: number, nombre: string, ter: number): void{
+// comprueba(id: number, nombre: string, age: number): void{
 
 //   this.productoService.duplicado(id).subscribe(
 //     data => {
@@ -172,7 +172,7 @@ cargarusuario(){ //
 
 //       if (this.duplicado[1] == null){ //this.duplicado[0].nombre === this.duplicado[1].nombre && this.duplicado[0].idcartera === this.duplicado[1].idcartera
 //         console.log('no hay segundo, creamos');
-//         this.Addcartera(nombre, ter);
+//         this.Addcartera(nombre, age);
 //       }else{
 //         console.log('si hay segundo, no creamos')
 //       }
@@ -182,7 +182,7 @@ cargarusuario(){ //
 //       // if (this.duplicado[1] === undefined   ){   //this.duplicado.length < 2
 
 //       //   console.log(' Menor que 2, concretamente: ' + this.duplicado.length)
-//       //   this.Addcartera(nombre, ter);
+//       //   this.Addcartera(nombre, age);
 //       // }else{
 //       //   console.log('es mayor que 2, concretamente: ' + this.duplicado.length)
 //       // }
@@ -200,14 +200,14 @@ cargarusuario(){ //
   
 
   
-  Addcartera(nombre: string, isin: string, ticker: string, ter: number): void {  // Para añadir producto a la cartera
+  Addcartera(nombre: string, origen: string, ticker: string, age: number): void {  // Para añadir producto a la cartera
 
    // this.cargarusuario();
 
 //    console.log(this.nombreUsuario);
 
    
-    const producto = new Producto(nombre, isin, ticker, ter, this.nombreUsuario);    //this.index.nombreUsuario);
+    const producto = new Producto(nombre, origen, ticker, age, this.nombreUsuario);    //this.index.nombreUsuario);
 
 
     this.productoService.addacartera(producto).subscribe(
@@ -230,9 +230,9 @@ cargarusuario(){ //
 
 
 
-  duplicar(nombre: string, isin: string, ticker: string, ter: number, idcartera: string): void {
+  duplicar(nombre: string, origen: string, ticker: string, age: number, idcartera: string): void {
   
-    const producto = new Producto(nombre, isin, ticker, ter, 'idcartera');   // this.index.nombreUsuario);
+    const producto = new Producto(nombre, origen, ticker, age, 'idcartera');   // this.index.nombreUsuario);
     this.productoService.save(producto).subscribe(
       data => {
         this.toastr.success('Producto Creado', 'OK', {

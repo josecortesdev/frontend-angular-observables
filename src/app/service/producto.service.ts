@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class ProductoService {
 
   // Antes incluía la url aquí, ahora lo hago dentro de la carpeta environments
-  //La de heroku - productoURL = 'https://misetf.herokuapp.com/producto/';
+ 
 
   productoURL = 'http://localhost:8080/producto/';
   // environment.productoURL;
@@ -22,7 +22,8 @@ export class ProductoService {
   }
 
   public cartera(idcartera: string): Observable<Producto[]> {
-    return this.httpClient.get<Producto[]>(this.productoURL + `cartera/${idcartera}`);  //PARTE DEL ERROR ERA PONER ID AQUÍ
+    return this.httpClient.get<Producto[]>(this.productoURL + `cartera/${idcartera}`);  
+    
   }
 
   public duplicado(id: number): Observable<Producto[]> {

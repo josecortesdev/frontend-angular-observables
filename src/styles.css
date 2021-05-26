@@ -3,13 +3,7 @@ html {
   font-family: 'Lato', sans-serif;
 }
 
-.imgfondo {
-  background-image: url(src\assets\imgs\imagengrande1.png);
-  background-repeat: no-repeat;
-  height: 400px;
-  background-position: center, 0;
-  /* horizontal centrar, vertical a 0 */
-}
+
 
 a {
   text-decoration: none;

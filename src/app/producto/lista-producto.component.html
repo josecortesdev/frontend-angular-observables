@@ -37,16 +37,16 @@
         <tr *ngFor="let producto of productos | filter:filterPost">
           <!-- <th scope="row" class="align-middle">{{producto.id}}</th> -->
           <td class="align-middle">{{producto.nombre}} </td>
-          <td class="align-middle">{{producto.isin}} </td>
+          <td class="align-middle">{{producto.origen}} </td>
           <!-- <td class="align-middle">{{producto.ticker}} </td> -->
-          <td class="align-middle"> {{producto.ter}}</td>
-<!-- {{producto.ter}} -->
+          <td class="align-middle"> {{producto.age}}</td>
+<!-- {{producto.age}} -->
           <td class="align-middle"><button class="btn btn-outline-dark" routerLink="/detalle/{{producto.id}}"><i class="far fa-eye"></i> <!-- Ver --> </button></td>
           
           <!-- Aquí lo mismo, si es admin, saldrá -->
           <!-- quito el *ngIf="isAdmin" en addcartera, editar y borrar para permitir que el usuario pueda hacerlo -->
-          <td  class="align-middle"><button class="btn boton shadow" (click)="Addcartera(producto.nombre, producto.isin, producto.ticker, producto.ter)"><i class="fas fa-plus"></i> <!--Añadir cartera--> </button></td>
-          <!-- <td *ngIf="isAdmin" class="align-middle"><button class="btn btn-outline-dark" (click)="duplicar(producto.nombre, producto.ter)"><i class="far fa-clone"></i> </button></td> -->
+          <td  class="align-middle"><button class="btn boton shadow" (click)="Addcartera(producto.nombre, producto.origen, producto.ticker, producto.age)"><i class="fas fa-plus"></i> <!--Añadir cartera--> </button></td>
+          <!-- <td *ngIf="isAdmin" class="align-middle"><button class="btn btn-outline-dark" (click)="duplicar(producto.nombre, producto.age)"><i class="far fa-clone"></i> </button></td> -->
           <td class="align-middle"><button class="btn btn-outline-dark" routerLink="/editar/{{producto.id}}"><i class="far fa-edit"></i> </button></td>
           <td class="align-middle"><button class="btn btn-danger" (click)="borrar(producto.id)"><i class="far fa-trash-alt"></i> </button></td>
         </tr>
@@ -82,9 +82,9 @@
           <tr *ngFor="let productoCartera of productosCartera">
             <!-- <th scope="row" class="align-middle">{{productoCartera.id}}</th> -->
             <td class="align-middle">{{productoCartera.nombre}} </td>
-            <td class="align-middle">{{productoCartera.isin}} </td>
+            <td class="align-middle">{{productoCartera.origen}} </td>
             <!-- <td class="align-middle">{{productoCartera.ticker}} </td> -->
-            <td class="align-middle">{{productoCartera.ter}}</td>
+            <td class="align-middle">{{productoCartera.age}}</td>
             <td class="align-middle"><button class="btn btn-outline-dark" routerLink="/detalle/{{productoCartera.id}}"><i class="far fa-eye"></i> <!-- Ver --> </button></td>
             
             <!-- Aquí lo mismo, si es admin, saldrá -->
