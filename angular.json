@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "FrontFintool": {
+    "rock": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/FrontFintool",
+            "outputPath": "dist/rock",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -59,18 +59,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "FrontFintool:build"
+            "browserTarget": "rock:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "FrontFintool:build:production"
+              "browserTarget": "rock:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "FrontFintool:build"
+            "browserTarget": "rock:build"
           }
         },
         "test": {
@@ -107,11 +107,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "FrontFintool:serve"
+            "devServerTarget": "rock:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "FrontFintool:serve:production"
+              "devServerTarget": "rock:serve:production"
             }
           }
         },
@@ -122,7 +122,7 @@
       }
     }
   },
-  "defaultProject": "FrontFintool",
+  "defaultProject": "rock",
   "cli": {
     "analytics": false
   }
