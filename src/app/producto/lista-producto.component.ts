@@ -149,14 +149,14 @@ cargarusuario(){ //
   borrar(id: number) {
     this.productoService.delete(id).subscribe(
       data => {
-        this.toastr.success('Producto Eliminado', 'OK', {
+        this.toastr.success('Banda Eliminada', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.cargarProductos();
         this.cargarusuario();
       },
       err => {
-        this.toastr.error(err.error.mensaje, 'Fail', {
+        this.toastr.error(err.error.mensaje, 'Error', {
           timeOut: 3000, positionClass: 'toast-top-center',
         });
       }
@@ -164,38 +164,7 @@ cargarusuario(){ //
   }
 
  
-// comprueba(id: number, nombre: string, age: number): void{
 
-//   this.productoService.duplicado(id).subscribe(
-//     data => {
-//       this.duplicado = data; // lo carga en el Array que hemos creado, llamado duplicado
-
-//       if (this.duplicado[1] == null){ //this.duplicado[0].nombre === this.duplicado[1].nombre && this.duplicado[0].idcartera === this.duplicado[1].idcartera
-//         console.log('no hay segundo, creamos');
-//         this.Addcartera(nombre, age);
-//       }else{
-//         console.log('si hay segundo, no creamos')
-//       }
-
-
-      
-//       // if (this.duplicado[1] === undefined   ){   //this.duplicado.length < 2
-
-//       //   console.log(' Menor que 2, concretamente: ' + this.duplicado.length)
-//       //   this.Addcartera(nombre, age);
-//       // }else{
-//       //   console.log('es mayor que 2, concretamente: ' + this.duplicado.length)
-//       // }
-      
-//     },
-//     err => {
-//       console.log(err);
-//     }
-//   );
-
-
-
-// }
 
   
 
@@ -212,14 +181,14 @@ cargarusuario(){ //
 
     this.productoService.addacartera(producto).subscribe(
       data => {
-        this.toastr.success('Producto Creado', 'OK', {
+        this.toastr.success('Banda Creada', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/lista']);
         this.cargarCartera(this.nombreUsuario); // Carga la cartera con el nombre usuario
       },
       err => {
-        this.toastr.error(err.error.mensaje, 'Fail', {
+        this.toastr.error(err.error.mensaje, 'Error', {
           timeOut: 3000,  positionClass: 'toast-top-center',
         });
         
@@ -235,14 +204,14 @@ cargarusuario(){ //
     const producto = new Producto(nombre, origen, ticker, age, 'idcartera');   // this.index.nombreUsuario);
     this.productoService.save(producto).subscribe(
       data => {
-        this.toastr.success('Producto Creado', 'OK', {
+        this.toastr.success('Creada', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/lista']);
         this.cargarProductos();
       },
       err => {
-        this.toastr.error(err.error.mensaje, 'Fail', {
+        this.toastr.error(err.error.mensaje, 'Error', {
           timeOut: 3000,  positionClass: 'toast-top-center',
         });
         

@@ -20,7 +20,16 @@ export class NuevoProductoComponent implements OnInit {
     private productoService: ProductoService,
     private toastr: ToastrService,
     private router: Router
-  ) { }
+  ) { 
+
+    // Popover que uso para informar al usuario del lugar donde se encuentra el ID de los vídeos de Youtube
+    $(document).ready(function () {
+      (<any>$('[data-toggle="popover"]')).popover({
+        placement: 'top',
+        trigger: 'hover'
+      });
+    });
+  }
 
   ngOnInit() {
   }
@@ -31,7 +40,7 @@ export class NuevoProductoComponent implements OnInit {
     const producto = new Producto(this.nombre, this.origen, this.ticker, this.age, admin);
     this.productoService.save(producto).subscribe(
       data => {
-        this.toastr.success('Producto Creado', 'OK', {
+        this.toastr.success('Banda Creada', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/lista']);
