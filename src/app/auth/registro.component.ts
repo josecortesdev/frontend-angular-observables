@@ -15,7 +15,7 @@ export class RegistroComponent implements OnInit {
   //Similar al login, estas variables están copiadas
 
   nuevoUsuario: NuevoUsuario;
-  nombre: string;
+  name: string;
   password: string;
   confirmation: string;
   email: string;
@@ -35,7 +35,7 @@ export class RegistroComponent implements OnInit {
 
   //Método para registrarse
   onRegister(): void {
-    this.nuevoUsuario = new NuevoUsuario(this.nombre, this.password, this.confirmation, this.email);
+    this.nuevoUsuario = new NuevoUsuario(this.name, this.password, this.confirmation, this.email);
     this.authService.nuevo(this.nuevoUsuario).subscribe(
       data => {
         this.toastr.success('Cuenta Creada', 'OK', {

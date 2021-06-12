@@ -13,6 +13,7 @@ export class IndexComponent implements OnInit {
 
   nombreUsuario: string; // vacío
 
+
   constructor(private tokenService: TokenService, private DecimalPipe: DecimalPipe) {
 
   }

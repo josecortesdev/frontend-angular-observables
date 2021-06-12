@@ -23,8 +23,8 @@
         <form #f="ngForm" (ngSubmit)="onRegister()" novalidate>
           <!-- va a ser onregister-->
           <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="nombre" required>
+            <label for="name">name</label>
+            <input type="text" name="name" id="name" class="form-control" [(ngModel)]="name" required>
             <!-- ngModel, misma variable que en login.c.ts.
                   Es required -->
           </div>
@@ -34,8 +34,8 @@
             <input type="password" name="password" id="password" class="form-control" [(ngModel)]="password" required>
           </div>
           <div class="form-group">
-            <label for="confirmation">Confirmación</label>
-            <input type="confirmation" name="confirmation" id="confirmation" class="form-control" [(ngModel)]="confirmation" required>
+            <label for="password_confirmation">Confirmación</label>
+            <input type="password_confirmation" name="password_confirmation" id="password_confirmation" class="form-control" [(ngModel)]="password_confirmation" required>
           </div>
           <div class="form-group">
             <label for="email">Correo Electrónico</label>

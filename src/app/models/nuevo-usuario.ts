@@ -2,18 +2,18 @@ export class NuevoUsuario {
 
     //variables
 
-    nombre: string;
+    name: string;
     password: string;
-    confirmation: string;
+    password_confirmation: string;
     email: string;
 
 
     //constructor 
 
-    constructor(nombre: string, password: string, confirmation: string, email: string, ) {
-        this.nombre = nombre;
+    constructor(name: string, password: string, password_confirmation: string, email: string, ) {
+        this.name = name;
         this.password = password;
-        this.confirmation = confirmation;
+        this.password_confirmation = password_confirmation;
         this.email = email;
     }
 }
