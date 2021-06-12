@@ -28,20 +28,14 @@
             <!-- ngModel, misma variable que en login.c.ts.
                   Es required -->
           </div>
-          <div class="form-group">
-            <label for="apellido">Apellido</label>
-            <input type="text" name="apellido" id="apellido" class="form-control" [(ngModel)]="apellido" required>
-            <!-- ngModel, misma variable que en login.c.ts.
-                Es required -->
-          </div>
-          <div class="form-group">
-            <label for="nombreUsuario">Nombre de Usuario</label>
-            <input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control" [(ngModel)]="nombreUsuario"
-              required>
-          </div>
+
           <div class="form-group">
             <label for="password">Contraseña</label>
             <input type="password" name="password" id="password" class="form-control" [(ngModel)]="password" required>
+          </div>
+          <div class="form-group">
+            <label for="confirmation">Confirmación</label>
+            <input type="confirmation" name="confirmation" id="confirmation" class="form-control" [(ngModel)]="confirmation" required>
           </div>
           <div class="form-group">
             <label for="email">Correo Electrónico</label>

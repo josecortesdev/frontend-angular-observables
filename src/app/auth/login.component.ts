@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   loginUsuario: LoginUsuario; // loginusuario, que es un objeto de la clase login-usuario.ts
 
   //dos campos, nombre y password, los valores que les pasa al loginusuario
-  nombreUsuario: string;
+  email: string;
   password: string;
   errMsj: string;  // creada para usarla en el mensaje de error
 
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
   onLogin(): void {
 
     //inicializamos el loginusuario y le pasamos el usuario y el password
-    this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
+    this.loginUsuario = new LoginUsuario(this.email, this.password);
 
 
     //Vamos a enviarlo al authservice

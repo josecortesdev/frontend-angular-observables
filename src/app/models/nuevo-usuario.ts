@@ -3,18 +3,17 @@ export class NuevoUsuario {
     //variables
 
     nombre: string;
-    apellido: string;
-    nombreUsuario: string;
-    email: string;
     password: string;
+    confirmation: string;
+    email: string;
+
 
     //constructor 
 
-    constructor(nombre: string, apellido: string, nombreUsuario: string, email: string, password: string) {
+    constructor(nombre: string, password: string, confirmation: string, email: string, ) {
         this.nombre = nombre;
-        this.apellido = apellido;
-        this.nombreUsuario = nombreUsuario;
-        this.email = email;
         this.password = password;
+        this.confirmation = confirmation;
+        this.email = email;
     }
 }

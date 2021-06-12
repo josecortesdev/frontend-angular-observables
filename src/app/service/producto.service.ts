@@ -13,46 +13,34 @@ export class ProductoService {
   // De momento dejo el nombre 'producto' para no tardar mucho en la prueba
   // Para una aplicación en la que vayan a trabajar más personas probablemente debería cambiar el nombre 'producto' por uno como 'banda' para que se entienda mejor
 
-  productoURL = 'http://localhost:8080/producto/';
+  productoURL = 'http://127.0.0.1/api/products';
   
 
   constructor(private httpClient: HttpClient) { }
 
   public lista(): Observable<Producto[]> {
-    return this.httpClient.get<Producto[]>(this.productoURL + 'lista');
-  }
-
-  public cartera(idcartera: string): Observable<Producto[]> {
-    return this.httpClient.get<Producto[]>(this.productoURL + `cartera/${idcartera}`);  
-    
-  }
-
-  public duplicado(id: number): Observable<Producto[]> {
-    return this.httpClient.get<Producto[]>(this.productoURL + `duplicado/${id}`);
+    return this.httpClient.get<Producto[]>(this.productoURL);
   }
 
   public detail(id: number): Observable<Producto> {
-    return this.httpClient.get<Producto>(this.productoURL + `detail/${id}`);
+    return this.httpClient.get<Producto>(this.productoURL + `/${id}`);
   }
 
-  public detailName(nombre: string): Observable<Producto> {
-    return this.httpClient.get<Producto>(this.productoURL + `detailname/${nombre}`);
-  }
+  // public detailName(nombre: string): Observable<Producto> {
+  //   return this.httpClient.get<Producto>(this.productoURL + `detailname/${nombre}`);
+  // }
 
   public save(producto: Producto): Observable<any> {
-    return this.httpClient.post<any>(this.productoURL + 'create', producto);
+    return this.httpClient.post<any>(this.productoURL, producto);
   }
 
-  public addacartera(producto: Producto): Observable<any> {
-    return this.httpClient.post<any>(this.productoURL + 'addacartera', producto);
-  }
 
   public update(id: number, producto: Producto): Observable<any> {
-    return this.httpClient.put<any>(this.productoURL + `update/${id}`, producto);
+    return this.httpClient.put<any>(this.productoURL + `/${id}`, producto);
   }
 
   public delete(id: number): Observable<any> {
-    return this.httpClient.delete<any>(this.productoURL + `delete/${id}`);
+    return this.httpClient.delete<any>(this.productoURL + `/${id}`);
   }
 
 

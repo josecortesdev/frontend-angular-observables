@@ -11,10 +11,8 @@ import { Router } from '@angular/router';
 })
 export class NuevoProductoComponent implements OnInit {
 
-  nombre = '';
-  origen = '';
-  ticker = '';
-  age: number = null;
+  name = '';
+  price: number = null;
 
   constructor(
     private productoService: ProductoService,
@@ -36,8 +34,8 @@ export class NuevoProductoComponent implements OnInit {
 
   //Crear uno nuevo
   onCreate(): void {
-    const admin = 'adminjose';
-    const producto = new Producto(this.nombre, this.origen, this.ticker, this.age, admin);
+
+    const producto = new Producto(this.name, this.price);
     this.productoService.save(producto).subscribe(
       data => {
         this.toastr.success('Banda Creada', 'OK', {

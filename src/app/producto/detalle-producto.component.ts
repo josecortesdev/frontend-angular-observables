@@ -30,10 +30,6 @@ export class DetalleProductoComponent implements OnInit {
       data => {
         this.producto = data;
 
-        let Video = <HTMLElement>document.querySelector('#video');
-
-        Video.innerHTML = `<iframe width="230" height="157" src="https://www.youtube.com/embed/` + this.producto.ticker + `"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-
 
       },
       err => {

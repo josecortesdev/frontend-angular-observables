@@ -7,18 +7,14 @@ export class Producto {
     // Para una aplicación en la que vayan a trabajar más personas probablemente debería cambiar el nombre 'producto' por uno como 'banda' para que se entienda mejor
 
     id?: number;
-    nombre: string;
-    origen: string;
-    ticker: string;  // es el id del vídeo de Youtube
-    age: number;
-    idcartera: string;
+    name: string;
+    price: number;
 
-    constructor(nombre: string, origen: string, ticker: string, age: number, idcartera: string) {
-        this.nombre = nombre;
-        this.origen = origen;
-        this.ticker = ticker; // es el id del vídeo de Youtube
-        this.age = age;
-        this.idcartera = idcartera;
+
+    constructor(name: string, price: number) {
+        this.name = name;
+        this.price = price; 
+
     }
 }
 

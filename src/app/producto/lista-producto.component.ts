@@ -22,8 +22,8 @@ export class ListaProductoComponent implements OnInit {
 
   duplicado: Producto[] = [];
 
-  sinid: Sinid[] = [];
-  sinrepetidos: Sinid[] = [];
+  // sinid: Sinid[] = [];
+  // sinrepetidos: Sinid[] = [];
 
   listaAdmin: Producto[] = [];
 
@@ -53,9 +53,6 @@ export class ListaProductoComponent implements OnInit {
     this.cargarProductos(); // Carga los productos
 
 
-
-    this.cargarusuario(); // Carga el usuario y también su cartera (con otro método)
-
     this.isAdmin = this.tokenService.isAdmin();
 
   }
@@ -68,8 +65,8 @@ export class ListaProductoComponent implements OnInit {
   cargarProductos(): void {
 
 
-    const admin = 'adminjose'
-    this.productoService.cartera(admin).subscribe(
+   
+    this.productoService.lista().subscribe(
       data => {
         this.productos = data; // lo carga en el Array que hemos creado, llamado productos
 
@@ -81,56 +78,23 @@ export class ListaProductoComponent implements OnInit {
 
   }
 
-  cargasinid(productos: Producto[]) {
+  // cargasinid(productos: Producto[]) {
 
-    for (let i = 0; i < productos.length; i++) {
-
-
-      this.sinid.push({ nombre: productos[i].nombre, age: productos[i].age })
-
-      let unicos = [];
-      this.sinid.forEach(it => {
-        if (unicos.indexOf(it) == -1)
-          unicos.push(it);
-      })
-
-    }
-
-  }
+  //   for (let i = 0; i < productos.length; i++) {
 
 
+  //     this.sinid.push({ nombre: productos[i].nombre, age: productos[i].age })
 
-  //Para cargar el nombre del usuario
-  cargarusuario() { // 
-    if (this.tokenService.getToken()) { // si tiene token
-      this.isLogged = true; // está logueado
-      this.nombreUsuario = this.tokenService.getUserName(); // almacenamos el nombreusuario
+  //     let unicos = [];
+  //     this.sinid.forEach(it => {
+  //       if (unicos.indexOf(it) == -1)
+  //         unicos.push(it);
+  //     })
 
-      this.cargarCartera(this.nombreUsuario);   // Vamos al método cargarCartera para cargar los productos del usuario
+  //   }
 
-    } else {
-      this.isLogged = false;  // si no tiene token, no está logueado
-      this.nombreUsuario = ''; // usuario se queda así
-    }
+  // }
 
-  }
-
-  //Método para cargar las bandas de rock del usuario
-  cargarCartera(nombreUsuario: string) {
-
-
-    this.productoService.cartera(nombreUsuario).subscribe(
-      data => {
-        this.productosCartera = data; // lo carga en el Array que hemos creado, llamado productos
-
-
-      },
-      err => {
-        console.log(err);
-      }
-    );
-
-  }
 
   borrar(id: number) {
     this.productoService.delete(id).subscribe(
@@ -139,7 +103,7 @@ export class ListaProductoComponent implements OnInit {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.cargarProductos();
-        this.cargarusuario();
+      
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Error', {
@@ -150,53 +114,5 @@ export class ListaProductoComponent implements OnInit {
   }
 
 
-
-// Para añadir una banda a favoritas
-  Addcartera(nombre: string, origen: string, ticker: string, age: number): void {  
-
-
-    const producto = new Producto(nombre, origen, ticker, age, this.nombreUsuario);
-
-
-    this.productoService.addacartera(producto).subscribe(
-      data => {
-        this.toastr.success('Banda Creada', 'OK', {
-          timeOut: 3000, positionClass: 'toast-top-center'
-        });
-        this.router.navigate(['/lista']);
-        this.cargarCartera(this.nombreUsuario); // Carga la cartera con el nombre usuario
-      },
-      err => {
-        this.toastr.error(err.error.mensaje, 'Error', {
-          timeOut: 3000, positionClass: 'toast-top-center',
-        });
-
-
-      }
-    );
-  }
-
-
-
-  duplicar(nombre: string, origen: string, ticker: string, age: number, idcartera: string): void {
-
-    const producto = new Producto(nombre, origen, ticker, age, 'idcartera');
-    this.productoService.save(producto).subscribe(
-      data => {
-        this.toastr.success('Creada', 'OK', {
-          timeOut: 3000, positionClass: 'toast-top-center'
-        });
-        this.router.navigate(['/lista']);
-        this.cargarProductos();
-      },
-      err => {
-        this.toastr.error(err.error.mensaje, 'Fail', {
-          timeOut: 3000, positionClass: 'toast-top-center',
-        });
-
-
-      }
-    );
-  }
 
 }
