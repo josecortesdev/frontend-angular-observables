@@ -13,6 +13,8 @@ export class EditarProductoComponent implements OnInit {
 
   producto: Producto = null;
 
+  cargandoeditar: boolean = true;
+
   constructor(
     private productoService: ProductoService,
     private activatedRoute: ActivatedRoute,
@@ -26,6 +28,8 @@ export class EditarProductoComponent implements OnInit {
     this.productoService.detail(id).subscribe(
       data => {
         this.producto = data;
+
+        this.cargandoeditar = false;
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Fail', {
@@ -41,7 +45,7 @@ export class EditarProductoComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params.id;
     this.productoService.update(id, this.producto).subscribe(
       data => {
-        this.toastr.success('Banda Actualizada', 'OK', {
+        this.toastr.success('Producto actualizado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/lista']);

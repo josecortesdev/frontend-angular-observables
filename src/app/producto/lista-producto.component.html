@@ -7,14 +7,16 @@
 <div class="container">
 
   <div class="container">
-    <span class="h1 font-weight-bold"> Selección de bandas de Rock </span>
+    <span class="h1 font-weight-bold"> Productos </span>
   </div>
 
   <div class="form-group mt-5">
     <input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost">
   </div>
 
-  <div class="mt-5 table-responsive">
+ 
+
+<div class="mt-5 table-responsive">
     <table class="table table-striped table-hover border">
       <thead class="thead-dark">
         <tr>
@@ -31,8 +33,9 @@
         </tr>
       </thead>
       <tbody>
+
         <tr *ngFor="let producto of productos | filter:filterPost">
-          <td class="align-middle">{{producto.name}} </td>
+           <td class="align-middle">{{producto.name}} </td>
           <td class="align-middle"> {{producto.price}}</td>
           <td class="align-middle"><button class="btn btn-outline-dark" routerLink="/detalle/{{producto.id}}"><i
                 class="far fa-eye"></i> <!-- Ver --> </button></td>
@@ -43,9 +46,19 @@
           <td class="align-middle"><button class="btn btn-danger" (click)="borrar(producto.id)"><i
                 class="far fa-trash-alt"></i> </button></td>
         </tr>
+    
       </tbody>
     </table>
+
+      <div *ngIf="cargando==true" class="text-center my-5"> 
+         <div class="spinner-border" role="status"></div> 
+      </div>
+
   </div>
+
+  
+
+  
 
   
   <div class="my-3">

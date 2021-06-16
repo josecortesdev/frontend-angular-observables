@@ -22,6 +22,8 @@ export class RegistroComponent implements OnInit {
 
   errMsj: string;
 
+  cargandoRegistro: boolean = false;
+
 
   constructor(
     private tokenService: TokenService,
@@ -35,6 +37,9 @@ export class RegistroComponent implements OnInit {
 
   //Método para registrarse
   onRegister(): void {
+
+    this.cargandoRegistro = true;
+
     this.nuevoUsuario = new NuevoUsuario(this.name, this.password, this.confirmation, this.email);
     this.authService.nuevo(this.nuevoUsuario).subscribe(
       data => {
@@ -43,6 +48,8 @@ export class RegistroComponent implements OnInit {
         });
 
         this.router.navigate(['/login']); //va al login
+
+    this.cargandoRegistro = false;
       },
       err => { // si hay error
         this.errMsj = err.error.mensaje;

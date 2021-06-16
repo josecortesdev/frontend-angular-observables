@@ -13,6 +13,8 @@ export class DetalleProductoComponent implements OnInit {
 
   producto: Producto = null;
 
+  cargando: boolean = true;
+
 
 
   constructor(
@@ -29,6 +31,8 @@ export class DetalleProductoComponent implements OnInit {
     this.productoService.detail(id).subscribe(
       data => {
         this.producto = data;
+
+        this.cargando = false;
 
 
       },

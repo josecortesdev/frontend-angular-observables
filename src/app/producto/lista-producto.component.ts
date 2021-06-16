@@ -17,8 +17,12 @@ import { DecimalPipe } from '@angular/common'; // para decimal pipe
 })
 export class ListaProductoComponent implements OnInit {
 
+  
+
   productos: Producto[] = [];
   productosCartera: Producto[] = [];
+
+cargando: boolean = true;
 
   duplicado: Producto[] = [];
 
@@ -70,6 +74,8 @@ export class ListaProductoComponent implements OnInit {
       data => {
         this.productos = data; // lo carga en el Array que hemos creado, llamado productos
 
+        this.cargando = false;
+
       },
       err => {
         console.log(err);
@@ -99,7 +105,7 @@ export class ListaProductoComponent implements OnInit {
   borrar(id: number) {
     this.productoService.delete(id).subscribe(
       data => {
-        this.toastr.success('Banda Eliminada', 'OK', {
+        this.toastr.success('Producto eliminado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.cargarProductos();

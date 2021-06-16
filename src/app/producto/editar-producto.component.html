@@ -1,5 +1,12 @@
 <app-menu></app-menu>
+
+    <div *ngIf="cargandoeditar==true" class="text-center my-5"> 
+        <div class="spinner-border" role="status"></div> 
+     </div>
+     
 <div *ngIf="producto">
+
+
 
     <div class="container col-lg-4 mt-5 bg-white border rounded my-5 py-4 px-3 shadow">
         <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">

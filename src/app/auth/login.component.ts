@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
 
   loginUsuario: LoginUsuario; // loginusuario, que es un objeto de la clase login-usuario.ts
 
+  cargandoLogin: boolean = false;
+
   //dos campos, nombre y password, los valores que les pasa al loginusuario
   email: string;
   password: string;
@@ -36,15 +38,22 @@ export class LoginComponent implements OnInit {
   // Método para hacer el login
   onLogin(): void {
 
+    this.cargandoLogin = true;
+
     //inicializamos el loginusuario y le pasamos el usuario y el password
     this.loginUsuario = new LoginUsuario(this.email, this.password);
 
+    window.localStorage.NameUser  = this.email;
 
     //Vamos a enviarlo al authservice
     this.authService.login(this.loginUsuario).subscribe( //loginusuario y nos suscribimos
       data => { // hacemos un callback
         this.tokenService.setToken(data.token);
+      //  window.localStorage.NameUser  = data;
+        console.log(data.user);
         this.router.navigate(['/']);  // lo mandamos al index
+
+        this.cargandoLogin = false;     
       },
       err => { // en caso de error
         this.errMsj = err.error.message;  // variable que habíamos creado para el error, saldrá el mensaje del backend
