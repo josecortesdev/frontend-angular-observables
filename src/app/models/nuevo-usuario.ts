@@ -1,6 +1,5 @@
 export class NuevoUsuario {
 
-    //variables
 
     name: string;
     password: string;
@@ -8,7 +7,6 @@ export class NuevoUsuario {
     email: string;
 
 
-    //constructor 
 
     constructor(name: string, password: string, password_confirmation: string, email: string, ) {
         this.name = name;

@@ -12,7 +12,7 @@ import { parse } from 'querystring';
 export class IndexComponent implements OnInit {
 
   nombreUsuario: string; // vacío
-  minombre: string;
+  userEmail: string;
 
 
   constructor(private tokenService: TokenService, private DecimalPipe: DecimalPipe) {
@@ -22,7 +22,7 @@ export class IndexComponent implements OnInit {
   ngOnInit() {
     this.nombreUsuario = this.tokenService.getUserName();
 
-    this.minombre = window.localStorage.NameUser;
+    this.userEmail = window.localStorage.UserEmail;
   }
 
 

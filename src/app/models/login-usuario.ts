@@ -1,7 +1,5 @@
 export class LoginUsuario {
 
-    //copio parte del nuevo usuario
-
     email: string;
     password: string;
 

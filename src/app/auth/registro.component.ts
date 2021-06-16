@@ -17,7 +17,7 @@ export class RegistroComponent implements OnInit {
   nuevoUsuario: NuevoUsuario;
   name: string;
   password: string;
-  confirmation: string;
+  password_confirmation: string;
   email: string;
 
   errMsj: string;
@@ -40,7 +40,7 @@ export class RegistroComponent implements OnInit {
 
     this.cargandoRegistro = true;
 
-    this.nuevoUsuario = new NuevoUsuario(this.name, this.password, this.confirmation, this.email);
+    this.nuevoUsuario = new NuevoUsuario(this.name, this.password, this.password_confirmation, this.email);
     this.authService.nuevo(this.nuevoUsuario).subscribe(
       data => {
         this.toastr.success('Cuenta Creada', 'OK', {
@@ -56,6 +56,8 @@ export class RegistroComponent implements OnInit {
         this.toastr.error(this.errMsj, 'Error', {
           timeOut: 3000, positionClass: 'toast-top-center',
         });
+
+        this.cargandoRegistro = false;
 
       }
     );

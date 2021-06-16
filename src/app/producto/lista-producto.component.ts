@@ -17,27 +17,26 @@ import { DecimalPipe } from '@angular/common'; // para decimal pipe
 })
 export class ListaProductoComponent implements OnInit {
 
-  
+
 
   productos: Producto[] = [];
   productosCartera: Producto[] = [];
 
-cargando: boolean = true;
+  cargando: boolean = true;
 
   duplicado: Producto[] = [];
 
-  // sinid: Sinid[] = [];
-  // sinrepetidos: Sinid[] = [];
+
 
   listaAdmin: Producto[] = [];
 
-  //necesito dos variables
+
 
   isAdmin = false;
 
   //Para cargar usuario
   isLogged = false;
-  nombreUsuario: string = ''; // vacío
+  nombreUsuario: string = '';
 
   idcartera: string = 'juan';
 
@@ -69,7 +68,7 @@ cargando: boolean = true;
   cargarProductos(): void {
 
 
-   
+
     this.productoService.lista().subscribe(
       data => {
         this.productos = data; // lo carga en el Array que hemos creado, llamado productos
@@ -84,23 +83,6 @@ cargando: boolean = true;
 
   }
 
-  // cargasinid(productos: Producto[]) {
-
-  //   for (let i = 0; i < productos.length; i++) {
-
-
-  //     this.sinid.push({ nombre: productos[i].nombre, age: productos[i].age })
-
-  //     let unicos = [];
-  //     this.sinid.forEach(it => {
-  //       if (unicos.indexOf(it) == -1)
-  //         unicos.push(it);
-  //     })
-
-  //   }
-
-  // }
-
 
   borrar(id: number) {
     this.productoService.delete(id).subscribe(
@@ -109,7 +91,7 @@ cargando: boolean = true;
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.cargarProductos();
-      
+
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Error', {

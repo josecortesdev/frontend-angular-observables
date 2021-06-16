@@ -5,7 +5,7 @@ import { LoginUsuario } from '../models/login-usuario';
 import { TokenService } from '../service/token.service';
 import { ToastrService } from 'ngx-toastr';
 
-//Se utilizará para comprobar si estamos o no estamos logueados y para obtener los privilegios de los usuarios
+//Se utilizará para comprobar si estamos o no estamos logueados 
 
 @Component({
   selector: 'app-login',
@@ -43,13 +43,12 @@ export class LoginComponent implements OnInit {
     //inicializamos el loginusuario y le pasamos el usuario y el password
     this.loginUsuario = new LoginUsuario(this.email, this.password);
 
-    window.localStorage.NameUser  = this.email;
+    window.localStorage.UserEmail  = this.email;
 
     //Vamos a enviarlo al authservice
     this.authService.login(this.loginUsuario).subscribe( //loginusuario y nos suscribimos
       data => { // hacemos un callback
         this.tokenService.setToken(data.token);
-      //  window.localStorage.NameUser  = data;
         console.log(data.user);
         this.router.navigate(['/']);  // lo mandamos al index
 
@@ -60,6 +59,8 @@ export class LoginComponent implements OnInit {
         this.toastr.error(this.errMsj, 'Error', {
           timeOut: 3000, positionClass: 'toast-top-center',
         });
+
+        this.cargandoLogin = false;   
 
       }
     );

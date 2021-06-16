@@ -1,16 +1,14 @@
 <app-menu></app-menu>
 
 
-<div class="imgfondo">
+
 
 
     <div class="container my-5 col-11 col-sm-7 justify-content-center bg-white border rounded shadow-lg py-5 px-md-5">
         <div *ngIf="nombreUsuario" class="m-lg-5">
 
-            <!-- <div class="h1">Bienvenido {{minombre}}</div> -->
-            <!-- {{nombreUsuario}} -->
-            <div class="h5 mt-4">Cuenta iniciada con el email {{minombre}} </div>
-            <div class="h5 mt-4">Puede acceder a la selección de productos </div>
+            <div class="h5 mt-4">Cuenta iniciada con el email {{userEmail}}.  </div>
+            <div class="h5 mt-4">Puede acceder a la selección de productos. </div>
 
             <div class="mt-5 d-flex justify-content-center">
                 <button class="btn boton btn-block col-lg-4 shadow " routerLink="/lista">
@@ -19,7 +17,6 @@
             </div>
 
         </div>
-
 
         <div *ngIf="!nombreUsuario" class="m-lg-5">
             <p class="h1">Acceda a la lista de productos</p>
@@ -44,6 +41,8 @@
                 </div>
             </div>
         </div>
+
+
+
     </div>
 
-</div>

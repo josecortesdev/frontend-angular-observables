@@ -61,17 +61,15 @@ export class TokenService {
     // el token tiene un aspecto similar a este: dijsdnfdjinf.fasidjnffi.fisjdfnsdif 
     // se compone de: header, payload y firma
     // ahora nos interesa el payload
-    //lo primero que hacemos es convertir la cadena en un array de cadenas
+    // lo primero que hacemos es convertir la cadena en un array de cadenas
 
     const token = this.getToken();
     const payload = token.split('.')[1];
     //split convierte un array a partir de un caracter, le ponemos posición 1 para acceder al payload
     const payloadDecoded = atob(payload);
     const values = JSON.parse(payloadDecoded); // parseamos a JSON
-    const roles = values.roles;
-    // if (roles.indexOf('ROLE_ADMIN') < 0) {       Esto era para admin
-    //   return false;
-    // }
+//    const roles = values.roles;
+
     return true;
   }
 
