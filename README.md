@@ -12,7 +12,7 @@
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - [API REST hecha con Laravel](https://github.com/josecortesdev/backend-laravel-api-rest)
 
-## Comandos
+## Comando
 Una vez que lo instales, puedes utilizar el siguiente comando:
 ```
 ng serve --open   
